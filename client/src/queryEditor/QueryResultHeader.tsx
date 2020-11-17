@@ -59,7 +59,10 @@ function QueryResultHeader() {
               <DownloadIcon style={{ marginRight: 4 }} size={16} />
               .csv
             </Link>
-
+          </span>
+        )}
+        {config?.allowXlsxDownload && hasRows && (
+          <span className={styles.iconLinkWrapper}>
             <Link
               className={styles.iconLink}
               target="_blank"
@@ -69,7 +72,10 @@ function QueryResultHeader() {
               <DownloadIcon style={{ marginRight: 4 }} size={16} />
               .xlsx
             </Link>
-
+          </span>
+        )}
+        {config?.allowJsonDownload && hasRows && (
+          <span className={styles.iconLinkWrapper}>
             <Link
               className={styles.iconLink}
               target="_blank"

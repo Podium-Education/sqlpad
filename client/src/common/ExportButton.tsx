@@ -36,6 +36,8 @@ function ExportButton({
   }
 
   const { allowCsvDownload } = config;
+  const { allowXlsxDownload } = config;
+  const { allowJsonDownload } = config;
 
   const items = [];
   if (onSaveImageClick) {
@@ -57,6 +59,8 @@ function ExportButton({
         csv
       </MenuLink>
     );
+  }
+  if (allowXlsxDownload) {
     items.push(
       <MenuLink
         key="xlsx"
@@ -68,6 +72,8 @@ function ExportButton({
         xlsx
       </MenuLink>
     );
+  }
+  if (allowJsonDownload) {
     items.push(
       <MenuLink
         key="json"

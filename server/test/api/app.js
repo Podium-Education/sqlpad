@@ -18,6 +18,8 @@ const expectedConfigKeys = [
   'baseUrl',
   'defaultConnectionId',
   'allowCsvDownload',
+  'allowXlsxDownload',
+  'allowJsonDownload',
   'editorWordWrap',
   'publicUrl',
   'smtpConfigured',

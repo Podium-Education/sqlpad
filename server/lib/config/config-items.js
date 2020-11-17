@@ -295,6 +295,16 @@ const configItems = [
     default: true,
   },
   {
+    key: 'allowXlsxDownload',
+    envVar: 'SQLPAD_ALLOW_XLSX_DOWNLOAD',
+    default: true,
+  },
+  {
+    key: 'allowJsonDownload',
+    envVar: 'SQLPAD_ALLOW_JSON_DOWNLOAD',
+    default: true,
+  },
+  {
     key: 'editorWordWrap',
     envVar: 'SQLPAD_EDITOR_WORD_WRAP',
     default: false,

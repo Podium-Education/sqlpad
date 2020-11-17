@@ -42,6 +42,8 @@ export interface AppInfo {
   adminRegistrationOpen: boolean;
   config: {
     allowCsvDownload: boolean;
+    allowXlsxDownload: boolean;
+    allowJsonDownload: boolean;
     // baseUrl app is mounted in. ie "/sqlpad"
     baseUrl: string;
     defaultConnectionId: string;

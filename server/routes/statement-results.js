@@ -23,8 +23,15 @@ async function handleDownload(req, res) {
     res.status(400).send(`Format must be one of ${FORMATS.join(', ')}`);
   }
 
-  // Despite config setting being for csv, it is used for all formats
-  if (!config.get('allowCsvDownload')) {
+  if (format === 'csv' && !config.get('allowCsvDownload')) {
+    return res.sendStatus(403);
+  }
+
+  if (format === 'xlsx' && !config.get('allowXlsxDownload')) {
+    return res.sendStatus(403);
+  }
+
+  if (format === 'json' && !config.get('allowJsonDownload')) {
     return res.sendStatus(403);
   }
 
