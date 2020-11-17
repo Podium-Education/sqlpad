@@ -11,8 +11,10 @@ import ToolbarShareQueryButton from './ToolbarShareQueryButton';
 import ToolbarSpacer from './ToolbarSpacer';
 import ToolbarTagsButton from './ToolbarTagsButton';
 import ToolbarToggleSchemaButton from './ToolbarToggleSchemaButton';
+import useAppContext from '../../utilities/use-app-context';
 
 function Toolbar() {
+  const { config } = useAppContext();
   return (
     <div
       style={{
@@ -37,7 +39,7 @@ function Toolbar() {
         <ToolbarTagsButton />
         <ToolbarCloneButton />
         <ToolbarFormatQueryButton />
-        <ToolbarShareQueryButton />
+        {config?.allowQuerySharing && <ToolbarShareQueryButton />}
         <ToolbarSaveButton />
 
         <ToolbarSpacer grow />

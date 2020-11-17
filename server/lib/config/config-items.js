@@ -305,6 +305,11 @@ const configItems = [
     default: true,
   },
   {
+    key: 'allowQuerySharing',
+    envVar: 'SQLPAD_ALLOW_QUERY_SHARING',
+    default: true,
+  },
+  {
     key: 'editorWordWrap',
     envVar: 'SQLPAD_EDITOR_WORD_WRAP',
     default: false,

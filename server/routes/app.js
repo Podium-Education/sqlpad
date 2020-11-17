@@ -26,6 +26,7 @@ async function getApp(req, res) {
       allowCsvDownload: config.get('allowCsvDownload'),
       allowXlsxDownload: config.get('allowXlsxDownload'),
       allowJsonDownload: config.get('allowJsonDownload'),
+      allowQuerySharing: config.get('allowQuerySharing'),
       baseUrl: config.get('baseUrl'),
       defaultConnectionId: config.get('defaultConnectionId'),
       editorWordWrap: config.get('editorWordWrap'),

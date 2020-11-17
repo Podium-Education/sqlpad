@@ -44,6 +44,7 @@ export interface AppInfo {
     allowCsvDownload: boolean;
     allowXlsxDownload: boolean;
     allowJsonDownload: boolean;
+    allowQuerySharing: boolean;
     // baseUrl app is mounted in. ie "/sqlpad"
     baseUrl: string;
     defaultConnectionId: string;

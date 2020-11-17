@@ -20,6 +20,7 @@ const expectedConfigKeys = [
   'allowCsvDownload',
   'allowXlsxDownload',
   'allowJsonDownload',
+  'allowQuerySharing',
   'editorWordWrap',
   'publicUrl',
   'smtpConfigured',
