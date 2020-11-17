@@ -5,7 +5,7 @@ import 'ace-builds/src-min-noconflict/ext-searchbox';
 import Measure from 'react-measure';
 import useAppContext from '../utilities/use-app-context';
 require(`ace-builds/src-noconflict/mode-sql`);
-require(`ace-builds/src-noconflict/theme-sqlserver`);
+require(`ace-builds/src-noconflict/theme-dracula`);
 
 const noop = () => {};
 
@@ -78,7 +78,7 @@ function SqlEditor({ onChange, readOnly, value, onSelectionChange }: Props) {
             setOptions={setOptions}
             showGutter={true}
             showPrintMargin={false}
-            theme="sqlserver"
+            theme="dracula"
             value={value}
             width={width + 'px'}
           />
