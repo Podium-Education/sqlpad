@@ -1,10 +1,9 @@
 import React from 'react';
-import SpinKitCube from '../common/SpinKitCube';
 
 function QueryHistoryRunning() {
   return (
     <div className="h-100 flex-center">
-      <SpinKitCube />
+      <img src="/360.gif" alt="Refreshing history." />
     </div>
   );
 }

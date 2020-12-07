@@ -9,7 +9,6 @@ import ErrorBlock from '../common/ErrorBlock';
 import IconButton from '../common/IconButton';
 import Input from '../common/Input';
 import Sidebar from '../common/Sidebar';
-import SpinKitCube from '../common/SpinKitCube';
 import Text from '../common/Text';
 import Tooltip from '../common/Tooltip';
 import { loadSchema, toggleSchemaItem } from '../stores/editor-actions';
@@ -132,7 +131,7 @@ function SchemaSidebar() {
   } else if (loading) {
     content = (
       <div className={styles.schemaSpinner}>
-        <SpinKitCube />
+        <img src="/360.gif" alt="Loading schema information." />
       </div>
     );
   } else if (true) {

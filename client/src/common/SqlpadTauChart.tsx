@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Chart } from 'taucharts';
-import SpinKitCube from './SpinKitCube';
 import ErrorBlock from './ErrorBlock';
 import getTauChartConfig from './getTauChartConfig';
 import { setFakeChartRef, delFakeChartRef } from './tauChartRef';
@@ -53,7 +52,7 @@ function SqlpadTauChart({
   if (isRunning) {
     return (
       <div id="chart" className="flex-center h-100 w-100">
-        <SpinKitCube />
+        <img src="/360.gif" alt="Chart is running." />
       </div>
     );
   }

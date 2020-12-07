@@ -15,7 +15,6 @@ import ListItem from '../common/ListItem';
 import message from '../common/message';
 import MultiSelect from '../common/MultiSelect';
 import Select from '../common/Select';
-import SpinKitCube from '../common/SpinKitCube';
 import Text from '../common/Text';
 import { Query } from '../types';
 import { api } from '../utilities/api';
@@ -313,7 +312,7 @@ function QueryListDrawer({ onClose, visible }: Props) {
             >
               {loading && queries.length === 0 && (
                 <div className="h-100 w-100 flex-center">
-                  <SpinKitCube />
+                  <img src="/360.gif" alt="Loading queries." />
                 </div>
               )}
               {error && <ErrorBlock>Error getting queries</ErrorBlock>}

@@ -8,7 +8,6 @@ import HorizontalFormItem from '../common/HorizontalFormItem';
 import Input from '../common/Input';
 import message from '../common/message';
 import Select from '../common/Select';
-import SpinKitCube from '../common/SpinKitCube';
 import TextArea from '../common/TextArea';
 import { api } from '../utilities/api';
 
@@ -325,7 +324,7 @@ function ConnectionForm({ connectionId, onConnectionSaved }: any) {
   if (loading) {
     return (
       <div className="h-100 w-100 flex-center">
-        <SpinKitCube />
+        <img src="/360.gif" alt="Loading connections." />
       </div>
     );
   }
