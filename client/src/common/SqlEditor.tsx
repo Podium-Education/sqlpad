@@ -55,7 +55,7 @@ function SqlEditor({ onChange, readOnly, value, onSelectionChange }: Props) {
     enableSnippets: false,
     showLineNumbers: true,
     tabSize: 2,
-    fontSize: 18,
+    fontSize: 22,
   };
 
   return (
