@@ -72,7 +72,7 @@ function QueryEditor(props: Props) {
 
   const editorResultPane = (
     <SplitPane
-      split="vertical"
+      split="horizontal"
       minSize={100}
       defaultSize={'60%'}
       maxSize={-100}
