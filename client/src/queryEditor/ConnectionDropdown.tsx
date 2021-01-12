@@ -41,6 +41,9 @@ function ConnectionDropdown() {
 
   // Only show the connection menu if there's more than one option to select.
   if (currentUser?.role === 'editor' && connections.length === 1) {
+    //Without the dropdown the user can not select the connection, so we need to select it for them.
+    selectConnectionId(connections[0].id);
+    connectConnectionClient();
     return null;
   }
 
