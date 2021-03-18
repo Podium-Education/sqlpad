@@ -21,6 +21,9 @@ function ConnectionDropdown() {
   let { data: connectionsData, mutate } = api.useConnections();
   const connections = connectionsData || [];
 
+  let { data: connectionsAccessesData } = api.useConnectionAccesses();
+  const connectionsAccesses = connectionsAccessesData || [];
+
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     if (event.target.value === 'new') {
       return setShowEdit(true);
@@ -53,44 +56,99 @@ function ConnectionDropdown() {
 
   const className = !selectedConnectionId ? styles.attention : undefined;
 
-  return (
-    <>
-      <Select
-        style={style}
-        className={className}
-        value={selectedConnectionId || ''}
-        onChange={handleChange}
-      >
-        <option value="" hidden>
-          ... choose connection
-        </option>
-        {connections.map((conn) => {
-          return (
-            <option key={conn.id} value={conn.id}>
-              {conn.name}
-            </option>
-          );
-        })}
+  if (currentUser?.role === 'admin') {
+    return (
+      <>
+        <Select
+          style={style}
+          className={className}
+          value={selectedConnectionId || ''}
+          onChange={handleChange}
+        >
+          <option value="" hidden>
+            ... choose connection
+          </option>
+          {connections.map((conn) => {
+            return (
+              <option key={conn.id} value={conn.id}>
+                {conn.name}
+              </option>
+            );
+          })}
 
-        {currentUser?.role === 'admin' && (
-          <option value="new">... New connection</option>
-        )}
-        {currentUser?.role === 'admin' && (
-          <option value="manage">... Manage connections</option>
-        )}
-      </Select>
-      <ConnectionEditDrawer
-        visible={showEdit}
-        placement="left"
-        onClose={() => setShowEdit(false)}
-        onConnectionSaved={handleConnectionSaved}
-      />
-      <ConnectionListDrawer
-        visible={showConnections}
-        onClose={() => setShowConnections(false)}
-      />
-    </>
-  );
+          {currentUser?.role === 'admin' && (
+            <option value="new">... New connection</option>
+          )}
+          {currentUser?.role === 'admin' && (
+            <option value="manage">... Manage connections</option>
+          )}
+        </Select>
+        <ConnectionEditDrawer
+          visible={showEdit}
+          placement="left"
+          onClose={() => setShowEdit(false)}
+          onConnectionSaved={handleConnectionSaved}
+        />
+        <ConnectionListDrawer
+          visible={showConnections}
+          onClose={() => setShowConnections(false)}
+        />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Select
+          style={style}
+          className={className}
+          value={selectedConnectionId || ''}
+          onChange={handleChange}
+        >
+          <option value="" hidden>
+            ... choose connection
+          </option>
+          {connections.map((conn) => {
+            {
+              let useMe = false;
+              connectionsAccesses.map((connAccess) => {
+                {
+                  if (
+                    connAccess.userId === '__EVERYONE__' &&
+                    conn.id === connAccess.connectionId
+                  ) {
+                    useMe = true;
+                  } else if (
+                    connAccess.userId === currentUser?.id &&
+                    conn.id === connAccess.connectionId
+                  ) {
+                    useMe = true;
+                  }
+                }
+              });
+
+              if (useMe) {
+                return (
+                  <option key={conn.id} value={conn.id}>
+                    {conn.name}
+                  </option>
+                );
+              }
+            }
+          })}
+        </Select>
+        <ConnectionEditDrawer
+          visible={showEdit}
+          placement="left"
+          onClose={() => setShowEdit(false)}
+          onConnectionSaved={handleConnectionSaved}
+        />
+        <ConnectionListDrawer
+          visible={showConnections}
+          onClose={() => setShowConnections(false)}
+        />
+      </>
+    );
+  }
 }
 
 export default ConnectionDropdown;
